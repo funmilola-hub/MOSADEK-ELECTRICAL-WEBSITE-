@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOSADEK ELECTRICAL ENGINEERING | Portfolio</title>
+<style>
+:root {
+  --bg: #f2f2f2;
+  --card-bg: #ffffff;
+  --text: #111;
+  --muted: #666;
+  --card-inner: #f9f9f9;
+  --border: #ddd;
+  --header-bg: #000;
+  --hero-bg: #111;
+  --hero-text: #ddd;
+}
+body.dark-mode {
+  --bg: #0f0f0f;
+  --card-bg: #1a1a1a;
+  --text: #ffffff;
+  --muted: #bbb;
+  --card-inner: #222;
+  --border: #333;
+  --header-bg: #000;
+  --hero-bg: #000;
+  --hero-text: #ccc;
+}
+* {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
+html {scroll-behavior:smooth;}
+body {background:var(--bg); color:var(--text); line-height:1.6; transition: background 0.3s, color 0.3s;}
+header {background:var(--header-bg); color:white; padding:20px 15px; text-align:center; border-bottom:4px solid #e60000; position:relative;}
+header h1 {font-size:clamp(22px, 5vw, 32px);}
+header h1 span {color:#e60000;}
+header p {font-size:14px; margin-top:6px; color:#ddd;}
+.theme-toggle {position:absolute; top:12px; right:12px; background:#e60000; color:white; border:none; padding:8px 14px; border-radius:20px; cursor:pointer; font-weight:bold; font-size:14px;}
+nav {background:#e60000; padding:0 15px; position:sticky; top:0; z-index:100;}
+.nav-container {max-width:1000px; margin:auto; display:flex; justify-content:space-between; align-items:center; min-height:50px;}
+.logo-small {color:white; font-weight:bold; display:none;}
+.menu-btn {display:none; background:none; border:none; color:white; font-size:26px; cursor:pointer;}
+.nav-links {display:flex;}
+.nav-links a {color:white; text-decoration:none; font-weight:bold; padding:12px 15px; display:block;}
+.hero {background:var(--hero-bg); color:white; text-align:center; padding:60px 20px; border-bottom:4px solid #e60000;}
+.hero h2 {font-size:clamp(26px, 7vw, 42px);}
+.hero h2 span {color:#e60000;}
+.hero p {font-size:16px; margin:12px 0 25px; color:var(--hero-text);}
+.btn-group {display:flex; flex-wrap:wrap; gap:12px; justify-content:center;}
+.btn {background:#e60000; color:white; padding:14px 28px; text-decoration:none; font-weight:bold; border-radius:6px; display:inline-block; flex:1; max-width:220px; text-align:center; border:none; cursor:pointer; font-size:16px;}
+.btn-white {background:white; color:#000; padding:14px 28px; text-decoration:none; font-weight:bold; border-radius:6px; display:inline-block; flex:1; max-width:220px; text-align:center;}
+section {padding:30px 20px; max-width:1000px; margin:20px auto; background:var(--card-bg); color:var(--text); border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.08); width:calc(100% - 30px);}
+section h2 {border-left:6px solid #e60000; padding-left:10px; margin-bottom:15px; font-size:clamp(20px, 5vw, 26px);}
+.services, .projects {display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:15px;}
+.card {background:var(--card-inner); padding:20px; border-radius:8px; border:1px solid var(--border); border-top:4px solid #e60000; color:var(--text);}
+.project {background:#000; color:white; padding:30px 15px; text-align:center; border-radius:8px; border-bottom:4px solid #e60000;}
+.contact-box {background:#000; color:white; padding:30px 20px; border-radius:8px; text-align:center; border:2px solid #e60000;}
+.contact-box a {color:#ff4d4d; font-weight:bold; text-decoration:none; word-break:break-all;}
+form {margin-top:20px;}
+form label {display:block; font-weight:bold; margin:12px 0 5px;}
+form input, form select, form textarea {width:100%; padding:13px; border:1.5px solid #ccc; border-radius:6px; font-size:16px; outline:none; background:var(--card-bg); color:var(--text);}
+body.dark-mode form input, body.dark-mode form select, body.dark-mode form textarea {border-color:#444; background:#222; color:#fff;}
+form input:focus, form select:focus, form textarea:focus {border-color:#e60000;}
+form textarea {height:120px; resize:vertical;}
+footer {text-align:center; padding:20px; background:#000; color:white; margin-top:20px; border-top:4px solid #e60000; font-size:14px;}
+@media(max-width:768px){ .logo-small{display:block;} .menu-btn{display:block;} .nav-links{display:none; flex-direction:column; position:absolute; top:50px; left:0; right:0; background:#e60000; width:100%;} .nav-links.show{display:flex;} nav{position:relative;} .theme-toggle{top:8px; right:8px; padding:6px 10px; font-size:12px;} }
+@media(max-width:480px){ .btn, .btn-white{max-width:100%; flex:1 1 100%;} .btn-group{flex-direction:column;} header{padding-top:45px;} }
+</style>
+</head>
+<body>
+
+<header>
+<button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">🌙 Dark Mode</button>
+<h1>MOSADEK <span>ELECTRICAL</span> ENGINEERING</h1>
+<p>Powering Homes • Powering Businesses • Powering The Future</p>
+</header>
+
+<nav>
+<div class="nav-container">
+<div class="logo-small">MOSADEK</div>
+<button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('show')">☰</button>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</nav>
+
+<div class="hero">
+<h2>We Do Quality <span>Electrical Work</span></h2>
+<p>House Wiring • Solar Installation • Industrial Wiring • Maintenance & Repairs</p>
+<div class="btn-group">
+<a class="btn" href="#contact">Get A Free Quote</a>
+<a class="btn-white" href="tel:08023509463">Call Now</a>
+</div>
+</div>
+
+<section id="about">
+<h2>About Us</h2>
+<p><b>MOSADEK ELECTRICAL ENGINEERING</b> is a trusted electrical engineering company based in Ogun State, Nigeria. We provide safe, neat and reliable electrical services for homes, offices, schools, churches and industries.</p><br>
+<p>Our mission: <b>Do it right the first time, with safety and quality.</b></p><br>
+<p><b>CEO / Lead Engineer:</b> Moses Adekoje</p>
+</section>
+
+<section id="services">
+<h2>Our Services</h2>
+<div class="services">
+<div class="card"><h3>⚡ House Wiring</h3><p>Complete wiring for new buildings, rewiring, and conduit / surface wiring.</p></div>
+<div class="card"><h3>☀️ Solar Installation</h3><p>Solar panels, inverters, batteries and full solar backup systems.</p></div>
+<div class="card"><h3>🏭 Industrial Wiring</h3><p>3-phase wiring, panel installation, motors and factory maintenance.</p></div>
+<div class="card"><h3>🔧 Repairs & Maintenance</h3><p>Fault finding, change-over, socket, switch, and breaker repairs.</p></div>
+<div class="card"><h3>💡 CCTV & Intercom</h3><p>Security lights, CCTV cameras, and intercom installation.</p></div>
+<div class="card"><h3>📐 Electrical Design</h3><p>Load calculation, drawing and estimation for building projects.</p></div>
+</div>
+</section>
+
+<section id="projects">
+<h2>Our Projects</h2>
+<div class="projects">
+<div class="project"><h3>2-Bedroom Flat Wiring</h3><p>Itoki, Ogun State</p><p>Completed ✅</p></div>
+<div class="project"><h3>3kVA Solar System</h3><p>For a Family Home</p><p>Completed ✅</p></div>
+<div class="project"><h3>Shop & Office Wiring</h3><p>Commercial Building</p><p>Completed ✅</p></div>
+</div>
+</section>
+
+<section>
+<h2>Why Choose MOSADEK?</h2>
+<p>✅ Experienced & Trained Engineers<br>✅ Neat & Safe Work<br>✅ Affordable Prices<br>✅ We Use Quality Materials<br>✅ We Give Warranty On Our Work</p>
+</section>
+
+<section id="contact">
+<h2>Contact Us - Send Us A Message</h2>
+<div class="contact-box">
+<p><b>MOSADEK ELECTRICAL ENGINEERING</b></p>
+<p>📍 8 Anike Akinbode Close, Itoki, Ogun State, Nigeria</p>
+<p>📞 <a href="tel:08023509463">08023509463</a></p>
+<p>📧 <a href="mailto:mosesadekoje4@gmail.com">mosesadekoje4@gmail.com</a></p><br>
+<a class="btn" href="https://wa.me/2348023509463">Chat On WhatsApp</a>
+</div>
+
+<!-- SIMPLE FORM - NO FORM ID NEEDED -->
+<form onsubmit="sendEmail(event)">
+<label>Your Full Name *</label>
+<input type="text" id="name" placeholder="e.g. John Okafor" required>
+<label>Your Phone / WhatsApp *</label>
+<input type="tel" id="phone" placeholder="e.g. 0803 XXX XXXX" required>
+<label>What Service Do You Need?</label>
+<select id="service">
+<option>House Wiring</option>
+<option>Solar Installation</option>
+<option>Industrial Wiring</option>
+<option>Repairs & Maintenance</option>
+<option>CCTV & Intercom</option>
+<option>Other</option>
+</select>
+<label>Your Message *</label>
+<textarea id="message" placeholder="Hello MOSADEK, I need wiring for my 3 bedroom flat in Itoki..." required></textarea>
+<button type="submit" class="btn" style="width:100%; max-width:100%; margin-top:15px;">📩 Send Message To MOSADEK</button>
+<p style="font-size:13px; color:var(--muted); margin-top:8px; text-align:center;">It will open your email app and send to mosesadekoje4@gmail.com</p>
+</form>
+</section>
+
+<footer>
+<p>© 2026 MOSADEK ELECTRICAL ENGINEERING. All Rights Reserved.</p>
+<p>Moses Adekoje | Itoki, Ogun State</p>
+</footer>
+
+<script>
+// DARK / LIGHT MODE
+function toggleTheme(){
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  document.getElementById('themeBtn').textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+  localStorage.setItem('mosadek-theme', isDark ? 'dark' : 'light');
+}
+if(localStorage.getItem('mosadek-theme') === 'dark'){
+  document.body.classList.add('dark-mode');
+  document.getElementById('themeBtn').textContent = '☀️ Light Mode';
+}
+
+// SEND EMAIL VIA MAILTO - NO FORM ID NEEDED
+function sendEmail(e){
+  e.preventDefault();
+  var name = document.getElementById('name').value;
+  var phone = document.getElementById('phone').value;
+  var service = document.getElementById('service').value;
+  var message = document.getElementById('message').value;
+  var subject = "New Enquiry from " + name + " - " + service;
+  var body = "Hello MOSADEK,%0D%0A%0D%0A" +
+             "My Name: " + name + "%0D%0A" +
+             "My Phone: " + phone + "%0D%0A" +
+             "Service Needed: " + service + "%0D%0A%0D%0A" +
+             "Message:%0D%0A" + message + "%0D%0A%0D%0A" +
+             "Please reply to me. Thank you.";
+  window.location.href = "mailto:mosesadekoje4@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + body;
+  alert("Thank you " + name + "! Your email app will open now. Just press SEND to deliver it to MOSADEK.");
+}
+</script>
+
+</body>
+</html>
