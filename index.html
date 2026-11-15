@@ -5,30 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MOSADEK ELECTRICAL ENGINEERING</title>
 <style>
-body{font-family:Arial;margin:0;background:#f4f4f4;color:#333}
-header{background:#0a2a5e;color:white;text-align:center;padding:35px 15px}
+:root{--bg:#f4f4f4;--card:white;--text:#333;--nav:#0a2a5e;--accent:#ffcc00}
+body.dark{--bg:#111827;--card:#1f2937;--text:#f3f4f6;--nav:#000;--accent:#ffcc00}
+body{font-family:Arial;margin:0;background:var(--bg);color:var(--text);transition:0.3s}
+nav{background:var(--nav);color:white;display:flex;justify-content:space-between;align-items:center;padding:12px 15px;position:sticky;top:0;z-index:100;flex-wrap:wrap}
+nav b{font-size:18px}
+nav a{color:white;text-decoration:none;margin:0 8px;font-size:14px;font-weight:bold}
+nav button{background:var(--accent);border:none;padding:8px 12px;border-radius:20px;font-weight:bold;cursor:pointer}
+header{background:#0a2a5e;color:white;text-align:center;padding:40px 15px}
 header h1{margin:0;font-size:32px}
-header p{font-size:16px;color:#ffcc00;font-weight:bold}
-.hero{padding:20px;text-align:center;background:white}
+header p{color:#ffcc00;font-weight:bold}
+.hero{padding:20px;text-align:center;background:var(--card);margin:15px;border-radius:12px}
 .hero img{width:100%;max-width:800px;border-radius:12px}
-.services{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;padding:20px}
-.card{background:white;width:300px;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.1);text-align:center;padding-bottom:15px}
+.section{padding:20px;max-width:900px;margin:auto}
+.services{display:flex;flex-wrap:wrap;justify-content:center;gap:15px}
+.card{background:var(--card);width:300px;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.1);text-align:center;padding-bottom:15px}
 .card img{width:100%;height:170px;object-fit:cover}
-.card h3{color:#0a2a5e;padding:0 10px}
-.card p{padding:0 12px;font-size:14px}
+.card h3{color:#0a2a5e}
+body.dark .card h3{color:#ffcc00}
 .btn{background:#25D366;color:white;padding:14px 25px;text-decoration:none;border-radius:30px;display:inline-block;font-weight:bold;margin:10px}
 .btn2{background:#0a2a5e;color:white;padding:14px 25px;text-decoration:none;border-radius:30px;display:inline-block;font-weight:bold;margin:10px}
+.btnEmail{background:#EA4335;color:white;padding:14px 25px;text-decoration:none;border-radius:30px;display:inline-block;font-weight:bold;margin:10px}
+.why{background:#0a2a5e;color:white;border-radius:12px;padding:20px}
+.why li{margin:10px 0}
 .contact{background:#0a2a5e;color:white;text-align:center;padding:25px 15px}
 footer{text-align:center;padding:15px;font-size:13px;background:#111;color:#ccc}
+input,textarea{width:90%;max-width:500px;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;font-family:Arial}
 </style>
 </head>
 <body>
 
-<header>
+<nav>
+<b>MOSADEK ⚡</b>
+<div>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#why">Why MOSADEK</a>
+<a href="#contact">Contact</a>
+</div>
+<button onclick="toggleMode()" id="modeBtn">🌙 Dark</button>
+</nav>
+
+<header id="home">
 <h1>MOSADEK ELECTRICAL ENGINEERING</h1>
 <p>Power • Safety • Excellence</p>
 <p style="color:white;font-weight:normal">Reliable Electrical Solutions in Ogun State & Lagos</p>
 <a class="btn" href="https://wa.me/2348023509463">Chat on WhatsApp</a>
+<a class="btnEmail" href="mailto:mosesadekoje4@gmail.com?subject=Hello%20MOSADEK%20-%20I%20Need%20Electrical%20Work">📧 Email Us</a>
 </header>
 
 <div class="hero">
@@ -39,6 +63,15 @@ footer{text-align:center;padding:15px;font-size:13px;background:#111;color:#ccc}
 <p id="msg" style="color:#0a2a5e;font-weight:bold"></p>
 </div>
 
+<div class="section" id="about">
+<h2>About Us</h2>
+<p>MOSADEK Electrical Engineering is a trusted electrical company based in Itoki, Ogun State. We provide safe, neat and affordable electrical solutions for homes, offices, shops and businesses.</p>
+<p>From new installations to urgent repairs, our goal is simple: <b>No wahala, just steady power.</b></p>
+<p>📍 8, Anike Akinbode Close, Itoki, Ogun State<br>📞 0802 350 9463<br>📧 mosesadekoje4@gmail.com</p>
+</div>
+
+<div class="section" id="services">
+<h2>Our Services</h2>
 <div class="services">
 <div class="card"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600"><h3>Electrical Installation</h3><p>Complete installation for new buildings, homes & offices.</p></div>
 <div class="card"><img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600"><h3>Electrical Maintenance</h3><p>Regular maintenance to keep your power safe and stable.</p></div>
@@ -47,13 +80,39 @@ footer{text-align:center;padding:15px;font-size:13px;background:#111;color:#ccc}
 <div class="card"><img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=600"><h3>Lighting Installation</h3><p>Modern indoor & outdoor lighting, chandeliers & security lights.</p></div>
 <div class="card"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600"><h3>Power & Electrical Systems</h3><p>Inverter, Solar, Generator & full power solutions.</p></div>
 </div>
+</div>
+
+<div class="section" id="why">
+<div class="why">
+<h2>Why Choose MOSADEK?</h2>
+<ul>
+<li>✅ <b>Experienced & Trusted</b> - Years of hands-on electrical work</li>
+<li>✅ <b>Safe & Neat Work</b> - We follow safety standards, no shortcuts</li>
+<li>✅ <b>Affordable Pricing</b> - Clear quote before we start, no hidden charges</li>
+<li>✅ <b>Fast Response</b> - We come quickly for urgent faults</li>
+<li>✅ <b>Customer First</b> - We explain, we listen, we follow up</li>
+<li>✅ <b>Warranty on Work</b> - If problem returns, we fix it</li>
+</ul>
+</div>
+</div>
+
+<div class="section" id="contact" style="text-align:center">
+<h2>Send Us An Email</h2>
+<p>Fill this and click Send - it will open your email app ready to send to us.</p>
+<input type="text" id="name" placeholder="Your Name"><br>
+<input type="text" id="phone" placeholder="Your Phone Number"><br>
+<textarea id="message" rows="4" placeholder="What electrical work do you need?"></textarea><br>
+<button class="btnEmail" onclick="sendEmail()">📧 Send Email Now</button>
+</div>
 
 <div class="contact">
 <h2>Contact Us Today</h2>
 <p>📍 8, Anike Akinbode Close, Itoki, Ogun State</p>
 <p>📞 0802 350 9463</p>
+<p>📧 mosesadekoje4@gmail.com</p>
 <a class="btn" href="https://wa.me/2348023509463?text=Hello%20MOSADEK,%20I%20need%20electrical%20work">Message Us on WhatsApp</a><br>
-<a class="btn2" href="tel:08023509463">Call Now</a>
+<a class="btn2" href="tel:08023509463">Call Now</a><br>
+<a class="btnEmail" href="mailto:mosesadekoje4@gmail.com?subject=Hello%20MOSADEK%20-%20I%20Need%20Electrical%20Work">📧 Email Us</a>
 </div>
 
 <footer>© 2026 MOSADEK ELECTRICAL ENGINEERING - All Rights Reserved</footer>
@@ -62,15 +121,20 @@ footer{text-align:center;padding:15px;font-size:13px;background:#111;color:#ccc}
 function showMessage(){
 document.getElementById("msg").innerHTML = "Thank you! Click WhatsApp below to get your FREE quote now ✅";
 }
-</script>
-
-</body>
-</html>A" +
-             "Please reply to me. Thank you.";
-  window.location.href = "mailto:mosesadekoje4@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + body;
-  alert("Thank you " + name + "! Your email app will open now. Just press SEND to deliver it to MOSADEK.");
+function toggleMode(){
+document.body.classList.toggle("dark");
+let btn=document.getElementById("modeBtn");
+if(document.body.classList.contains("dark")){btn.innerHTML="☀️ Light";}else{btn.innerHTML="🌙 Dark";}
+}
+function sendEmail(){
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let msg=document.getElementById("message").value;
+let subject="New Job Request from " + name;
+let body="Name: " + name + "%0APhone: " + phone + "%0A%0AMessage: " + msg;
+window.location.href="mailto:mosesadekoje4@gmail.com?subject="+encodeURIComponent(subject)+"&body="+body;
 }
 </script>
 
 </body>
-</html>
+  </html>
